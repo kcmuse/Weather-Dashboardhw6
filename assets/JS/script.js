@@ -8,35 +8,57 @@ var userInput = document.querySelector(`#cityname`);
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
-  
-    var cityname = userInput.value.trim();
-  
-    if (cityname) {
-      getWeatherToday(cityname);
-      getFiveDay(cityname);
 
-      currentEl.textContent = '';
-      userInput.value = '';
+    var cityname = userInput.value.trim();
+
+    if (cityname) {
+        getWeatherToday(cityname);
+        getFiveDay(cityname);
+
+        currentEl.textContent = '';
+        userInput.value = '';
     } else {
-      currentEl.textContent = `Please Enter a City`
+        currentEl.textContent = `Please Enter a City`
     }
-  };
+};
 
 var getWeatherToday = function (city) {
-    var cityname =  userInput.value.trim();
     var apiUrl = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey + "&units=imperial";
     fetch(apiUrl)
-    .then(function (response) {
-      if (response.ok) {
-        response.json().then(function (data) {
-          displayToday(data, user);
-          console.log(response)
-        });
-      } else {
-        alert('Error: ' + response.statusText);
-      }
-    })
-    .catch(function (error) {
-      alert('Unable to connect to GitHub');
-    });
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    displayToday(data, user);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
 }
+
+var displayToday = function () {
+    
+    
+}
+
+var getFiveDay = function(){
+    var apiUrl = "api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey + "&units=imperial";
+    fetch(apiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    displayFiveDay(data, user);
+                });
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+}
+
+var displayFiveDay = function(){
+
+
+
+
+}
+userFormEl.addEventListener(`submit`, formSubmitHandler)
