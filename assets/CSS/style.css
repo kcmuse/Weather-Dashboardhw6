@@ -1,0 +1,32 @@
+:root {
+    --drkblue: rgb(2, 2, 114);
+    --lightblue: rgb(9, 118, 243);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    background-image: linear-gradient(to right, var(--lightblue) , var(--drkblue));
+    padding: 5px;
+}
+.custom-btn {
+    border: 2px solid white;
+    color: white;
+    background-color: var(--lightblue);
+}
+.custom-days {
+    background-color: var(--drkblue);
+    color: white;
+
+}
+.cstm-card{
+    width: fit-content;
+}
+#weather{
+    display: none;
+}

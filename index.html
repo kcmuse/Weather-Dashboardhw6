@@ -1,16 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/CSS/style.css">
     <title>Weather Dashboard</title>
-    <link rel="shortcut icon" type="image/jpg" href="assets/images/bigW.jpeg"/>
+    <link rel="shortcut icon" type="image/jpg" href="assets/images/bigW.jpeg" />
 </head>
+
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="/assets/JS/script.js"></script>
+    <main class="container-fluid">
+        <header class="text-white">
+            <h1>Weather Dashboard!</h1>
+        </header>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card text-center">
+                    <h3 class="card-header text-uppercase">Search By City</h3>
+                    <form id="user-form" class="card-body">
+                        <label class="form-label" for="city">Enter City: </label>
+                        <input name="city" id="cityname" type="text" autofocus="true" class="form-input"
+                            placeholder="Enter city...." />
+                        <button type="submit" class="btn custom-btn" id="getweather">Get Weather!</button>
+                    </form>
+                </div>
+                <ul class="list group history"></ul>
+            </div>
+
+            <div id="weather" class="col-lg-9">
+                <div class="row">
+                    <div id="active" class="card m-3 w-100"></div>
+                </div>
+                <div class="row">
+                    <h3 class="mx-3 mb-3">Five Day Forecast:</h3>
+                </div>
+                <div class="row">
+                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
+                        <div class="card-header day1"></div>
+                        <div class="card-body">
+                            <p class="card-text temp1"></p>
+                            <p class="card-text wind1"></p>
+                            <p class="card-text humid1"></p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
+                        <div class="card-header day2"></div>
+                        <div class="card-body">
+                            <p class="card-text temp2"></p>
+                            <p class="card-text wind2"></p>
+                            <p class="card-text humid2"></p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
+                        <div class="card-header day3"></div>
+                        <div class="card-body">
+                            <p class="card-text temp3"></p>
+                            <p class="card-text wind3"></p>
+                            <p class="card-text humid3"></p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
+                        <div class="card-header day4"></div>
+                        <div class="card-body">
+                            <p class="card-text temp4"></p>
+                            <p class="card-text wind4"></p>
+                            <p class="card-text humid4"></p>
+                        </div>
+                    </div>
+                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
+                        <div class="card-header day5"></div>
+                        <div class="card-body">
+                            <p class="card-text temp5"></p>
+                            <p class="card-text wind5"></p>
+                            <p class="card-text humid5"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./assets/JS/script.js"></script>
 </body>
+
 </html>
