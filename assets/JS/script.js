@@ -2,7 +2,8 @@ var userFormEl = document.querySelector('#user-form');
 var getWeatherBtn = document.getElementById(`getweather`);
 var apiKey = "4f85dc9c3f81dd9dc3c9df75d407bc88";
 var userInput = document.getElementById(`cityname`);
-
+var hidden = document.querySelector(`#hidden`)
+var searchedCities = [];
 
 function getWeatherToday() {
     var cityName = userInput.value;
@@ -55,10 +56,10 @@ function getWeatherToday() {
 
 }
 
-function getFiveDay(res) {
-    var lat = res.coord.lat;
-    var lon = res.coord.lon;
-    var city = res.name;
+function getFiveDay(data) {
+    var lat = data.coord.lat;
+    var lon = data.coord.lon;
+    var city = data.name;
     var apiUrlFiveDay = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=imperial`
     fetch(apiUrlFiveDay)
         .then(function (response) {
@@ -108,6 +109,35 @@ function getFiveDay(res) {
             }
         })
 }
-getWeatherBtn.addEventListener(`click`, getWeatherToday);
-getWeatherBtn.addEventListener(`click`, getFiveDay);
+
+function savedCity() {
+    var savedCity = userInput.value.trim();
+    var searchHistory = searchedCities;
+    window.localStorage.setItem(`city`, JSON.stringify(savedCity));
+
+    var allCities = JSON.parse(window.localStorage.getItem(`city`))|| [];
+    console.log(allCities);
+    
+
+    for (var i = 0; i < allCities.length; i++){
+        var history = document.querySelector(`#history`);
+        var historyUl = document.createElement(`ul`);
+        var historyLi = document.createElement(`li`);
+        historyLi.classList.add(`list-group-item`, `list-group-item-action`);
+        historyLi.textContent = allCities;
+
+        history.appendChild(historyUl);
+        historyUl.appendChild(historyLi);
+    }
+}
+
+getWeatherBtn.addEventListener(`click`, function () {
+    if(userInput){
+        hidden.style = `display: block`
+        getWeatherToday(); 
+        // savedCity();
+    }
+})
+
+
 

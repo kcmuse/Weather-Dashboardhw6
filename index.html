@@ -25,76 +25,24 @@
                         <label class="form-label" for="city">Enter City: </label>
                         <input name="city" id="cityname" type="text" autofocus="true" class="form-input"
                             placeholder="Enter city...." />
-                        <button type="button" class="btn custom-btn" id="getweather">Get Weather!</button>
+                        <button oncl type="button" class="btn custom-btn" id="getweather">Get Weather!</button>
                     </form>
                 </div>
-                <ul class="list group history"></ul>
+                <div id="history"></div>
             </div>
-
             <div id="weather" class="col-lg-9">
-                <div class="row" id="current">
-                    <!-- <div class="card m-3 w-100">
-                        <h2 class="card-header today"></h2>
-                        <img class="todayimg" src="" alt="theweather">
-                        <div class="card-body">
-                            <p class="card-text temptoday"></p>
-                            <p class="card-text windtoday"></p>
-                            <p class="card-text humidtoday"></p>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="row">
+                <div class="row" id="current"></div>
+                <div class="row" id="hidden">
                     <h3 class="mx-3 mb-3">Five Day Forecast:</h3>
                 </div>
-                <div class="row" id="fiveday">
-                    <!-- <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
-                        <div class="card-header day1"></div>
-                        <div class="card-body">
-                            <p class="card-text temp1"></p>
-                            <p class="card-text wind1"></p>
-                            <p class="card-text humid1"></p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
-                        <div class="card-header day2"></div>
-                        <div class="card-body">
-                            <p class="card-text temp2"></p>
-                            <p class="card-text wind2"></p>
-                            <p class="card-text humid2"></p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
-                        <div class="card-header day3"></div>
-                        <div class="card-body">
-                            <p class="card-text temp3"></p>
-                            <p class="card-text wind3"></p>
-                            <p class="card-text humid3"></p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
-                        <div class="card-header day4"></div>
-                        <div class="card-body">
-                            <p class="card-text temp4"></p>
-                            <p class="card-text wind4"></p>
-                            <p class="card-text humid4"></p>
-                        </div>
-                    </div>
-                    <div class="card text-white bg-primary mb-3 mx-3 cstm-card" style="max-width: 18rem;">
-                        <div class="card-header day5"></div>
-                        <div class="card-body">
-                            <p class="card-text temp5"></p>
-                            <p class="card-text wind5"></p>
-                            <p class="card-text humid5"></p>
-                        </div>
-                    </div> -->
-                </div>
+                <div class="row" id="fiveday"></div>
             </div>
         </div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/JS/script.js"></script>
 </body>
 

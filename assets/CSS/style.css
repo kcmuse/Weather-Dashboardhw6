@@ -27,3 +27,7 @@ header {
 .cstm-card{
     width: fit-content;
 }
+
+#hidden {
+    display: none;
+}
