@@ -9,10 +9,10 @@ function getWeatherToday() {
     var cityName = userInput.value;
     var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=` + cityName + `&appid=` + apiKey + `&units=imperial`;
     fetch(apiUrl)
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (data) {
+        .then(function(data) {
             console.log(data);
             var humidity = data.main.humidity;
             var wind = data.wind.speed;
@@ -28,6 +28,8 @@ function getWeatherToday() {
             var temper = document.createElement(`p`);
             var windy = document.createElement(`p`);
             var weatherIcon = document.createElement(`img`);
+
+            current.textContent = ``;
 
             card.classList.add(`card`, `m-3`, `w-100`);
             cardHeader.classList.add(`card-header`);
@@ -62,11 +64,13 @@ function getFiveDay(data) {
     var city = data.name;
     var apiUrlFiveDay = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&appid=${apiKey}&units=imperial`
     fetch(apiUrlFiveDay)
-        .then(function (response) {
+        .then(function(response) {
             return response.json();
         })
-        .then(function (data) {
-            var daily = data.daily
+        .then(function(data) {
+            var daily = data.daily;
+            var fiveDay = document.querySelector(`#fiveday`);
+            fiveDay.textContent = ``;
             for (var i = 1; i <= daily.length - 3; i++) {
                 var date = moment.unix(daily[i].dt).format(`M/D/YY`)
                 var humidity = daily[i].humidity;
@@ -76,7 +80,6 @@ function getFiveDay(data) {
 
                 var iconImg = `http://openweathermap.org/img/wn/${icon}.png`
 
-                var fiveDay = document.querySelector(`#fiveday`)
                 var card = document.createElement(`div`);
                 var cardHeader = document.createElement(`div`);
                 var cardBody = document.createElement(`div`);
@@ -106,6 +109,7 @@ function getFiveDay(data) {
                 cardBody.appendChild(temper);
                 cardBody.appendChild(windy);
                 cardBody.appendChild(humid);
+
             }
         })
 }
@@ -115,11 +119,11 @@ function savedCity() {
     var searchHistory = searchedCities;
     window.localStorage.setItem(`city`, JSON.stringify(savedCity));
 
-    var allCities = JSON.parse(window.localStorage.getItem(`city`))|| [];
+    var allCities = JSON.parse(window.localStorage.getItem(`city`)) || [];
     console.log(allCities);
-    
 
-    for (var i = 0; i < allCities.length; i++){
+
+    for (var i = 0; i < allCities.length; i++) {
         var history = document.querySelector(`#history`);
         var historyUl = document.createElement(`ul`);
         var historyLi = document.createElement(`li`);
@@ -131,13 +135,10 @@ function savedCity() {
     }
 }
 
-getWeatherBtn.addEventListener(`click`, function () {
-    if(userInput){
+getWeatherBtn.addEventListener(`click`, function() {
+    if (userInput) {
         hidden.style = `display: block`
-        getWeatherToday(); 
+        getWeatherToday();
         // savedCity();
     }
 })
-
-
-
